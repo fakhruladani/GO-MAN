@@ -1,31 +1,38 @@
-# GO-MAN 🗺️🤖
-// for Alibaba Hackaton 2025
-
-**GO-MAN** (short for *Go Meeting Anywhere Now*) adalah aplikasi web berbasis [Streamlit](https://streamlit.io/) yang membantu pengguna menemukan titik tengah pertemuan dari beberapa lokasi dan memberikan rekomendasi tempat terdekat, serta menyediakan chatbot berbasis AI yang dapat menjawab berbagai pertanyaan melalui integrasi dengan webhook [n8n](https://n8n.io/).
-
-## 🚀 Fitur Utama
-
-### 1. 🔍 Cari Titik Tengah Lokasi
-Pengguna dapat memasukkan beberapa koordinat lokasi (latitude dan longitude), dan aplikasi akan menghitung titik tengah geografis dari semua lokasi tersebut. Selanjutnya, aplikasi akan mencari dan merekomendasikan kafe terdekat dari titik tengah tersebut (radius 3km) berdasarkan data dummy yang tersedia.
-
-### 2. 🤖 Chat AI
-Fitur ini memungkinkan pengguna untuk berinteraksi dengan AI dan mendapatkan jawaban dari pertanyaan apapun. Input pengguna akan dikirim ke endpoint webhook `n8n` yang telah disiapkan, dan respons AI akan ditampilkan di antarmuka aplikasi.
+Berikut adalah versi **README** dalam bahasa Inggris yang sesuai dengan struktur dan gaya yang Anda minta:
 
 ---
 
-## 🧰 Teknologi yang Digunakan
+````markdown
+# GO-MAN 🗺️🤖  
+// for Alibaba Hackathon 2025
+
+**GO-MAN** (*Go Meeting Anywhere Now*) is a web application built with [Streamlit](https://streamlit.io/) that helps users find the geographic midpoint of multiple locations and recommends nearby meeting spots. It also features an AI chatbot powered by a webhook integration using [n8n](https://n8n.io/).
+
+---
+
+## 🚀 Main Features
+
+### 1. 🔍 Midpoint Finder  
+Users can input multiple sets of coordinates (latitude and longitude), and the app will calculate the geographical midpoint. Based on this midpoint, it will suggest the nearest cafes (within a 3 km radius) using dummy data for demonstration purposes.
+
+### 2. 🤖 AI Chat  
+This feature allows users to ask any question. The input is sent to a configured `n8n` webhook endpoint, which processes the message and returns an AI-generated response displayed in the app interface.
+
+---
+
+## 🧰 Technologies Used
 
 - **Python**
-- **Streamlit** — untuk membangun antarmuka pengguna secara cepat dan interaktif
-- **Geopy** — untuk menghitung jarak geografis antar titik (dalam meter)
-- **Requests** — untuk mengirim permintaan HTTP ke webhook `n8n`
-- **n8n** — untuk mengelola dan mengotomatiskan proses alur kerja AI backend
+- **Streamlit** — for building the interactive user interface
+- **Geopy** — to calculate geographic distances between coordinates
+- **Requests** — to send HTTP requests to the `n8n` webhook
+- **n8n** — to manage and automate backend AI workflows
 
 ---
 
-## 🖥️ Cara Menjalankan Aplikasi
+## 🖥️ How to Run the App
 
-### 1. Clone repositori ini:
+### 1. Clone this repository:
 ```bash
 git clone https://github.com/fakhruladani/GO-MAN.git
 cd GO-MAN
@@ -33,13 +40,13 @@ cd GO-MAN
 
 ### 2. Install dependencies:
 
-Pastikan Anda telah mengaktifkan virtual environment (opsional), lalu jalankan:
+Make sure you activate a virtual environment (optional), then run:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Jalankan aplikasi:
+### 3. Run the app:
 
 ```bash
 streamlit run app.py
@@ -47,9 +54,9 @@ streamlit run app.py
 
 ---
 
-## 📦 Contoh Format Input Lokasi
+## 📦 Example Input Format
 
-Masukkan koordinat dalam format berikut (JSON List of Dicts):
+Enter coordinates in the following format (JSON list of dictionaries):
 
 ```json
 [
@@ -61,16 +68,19 @@ Masukkan koordinat dalam format berikut (JSON List of Dicts):
 
 ---
 
-## 🔧 Catatan Teknis
+## 🔧 Technical Notes
 
-* **Titik tengah** dihitung dengan rata-rata nilai latitude dan longitude dari semua lokasi.
-* **Data kafe** yang digunakan saat ini bersifat *dummy* dan dapat diperluas atau diganti dengan integrasi API (misalnya Google Places API).
-* **Webhook n8n** harus dikonfigurasi untuk menerima `user_input` dan mengembalikan respons dalam format JSON dengan key `message`.
+* The **midpoint** is calculated by averaging the latitude and longitude values of all input locations.
+* The **cafe data** is currently dummy and can be expanded or replaced with real-time data using an API (e.g., Google Places API).
+* The **n8n webhook** should be configured to receive a `user_input` parameter and return a JSON response containing the key `message`.
 
 ---
 
-## 💡 Ide Pengembangan Selanjutnya
+## 💡 Future Improvements
 
-* Integrasi Google Maps API untuk lokasi aktual kafe.
-
-
+* **Google Maps Integration** — Integrate Google Maps API to fetch the actual latitude and longitude from user-inputted place names or addresses, and to display map visuals directly within the app.
+* **Dynamic Midpoint Calculation from Place Names** — Allow users to input locations as place names (e.g., "Jakarta Timur", "Depok") and use geocoding to convert them to coordinates before midpoint calculation.
+* **Personalized Recommendations** — Enhance recommendation accuracy by integrating a larger and richer dataset of cafes, restaurants, and meeting places, categorized by user preferences, distance, ratings, and type.
+* **Real-time Data from Places APIs** — Replace static dummy data with live data from APIs such as Google Places, Foursquare, or Yelp for more accurate nearby venue suggestions.
+* **User Profile & History** — Implement a user system that stores previous meeting points, preferred cafe types, or frequently used locations to personalize the experience over time.
+* **Improved Distance Calculation Logic** — Enhance midpoint and distance logic by using weighted or road-based routes instead of just geographic coordinates.
