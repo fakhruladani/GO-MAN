@@ -1,8 +1,3 @@
-Berikut adalah versi **README** dalam bahasa Inggris yang sesuai dengan struktur dan gaya yang Anda minta:
-
----
-
-````markdown
 # GO-MAN 🗺️🤖  
 // for Alibaba Hackathon 2025
 
